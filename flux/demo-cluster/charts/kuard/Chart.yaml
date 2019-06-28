@@ -1,0 +1,9 @@
+name: kuard
+version: 0.0.1
+description: Demo app for Kubernetes
+sources:
+- https://github.com/kubernetes-up-and-running/kuard
+maintainers:
+- name: Smaine Kahlouch
+  email: smaine.kahlouch@dailymotion.com
+engine: gotpl

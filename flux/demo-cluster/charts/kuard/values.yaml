@@ -1,12 +1,12 @@
-# Default values for nginx.
+# Default values for kuard.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
+  repository: gcr.io/kuar-demo/kuard-amd64
+  tag: 1
   pullPolicy: IfNotPresent
 
 nameOverride: ""
@@ -46,3 +46,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Use https://github.com/pusher/wave to automatically restart when a configmap/secret changes
+wave:
+  enabled: false
