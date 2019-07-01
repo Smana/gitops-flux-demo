@@ -1,22 +1,3 @@
-# gitops-flux-demo
-Supports for a GitOps demo
-
-# Initialize Helm (Kube-system)
-
-On GKE we need to give cluster-admin perms
-```
-$ kubectl create clusterrolebinding smana --clusterrole=cluster-admin --user=smainklh@gmail.com
-```
-
-**Warning**: Installing Helm with cluster-admin perms is not a good security practice.
-This tiller will be used in order to bootstrap the core components and will be deleted later on.
-
-```
-$ kubectl create sa tiller -n kube-system
-$ kubectl create clusterrolebinding tiller --serviceaccount=kube-system:tiller --clusterrole=cluster-admin
-$ helm init --upgrade --service-account=tiller
-```
-
 # Init a tiller in the namespace flux
 
 Create a certificate for the tiller instance in the namespace flux
@@ -84,6 +65,7 @@ flux-tiller        True    flux-tiller-tls        33m
 ```
 
 Configure your helm client to use the certificate
+**warning**: don't forget to backup your helm certs if you have ones.
 ```
 $ kubectl get secrets -o json -n flux flux-helm-client-tls | jq -r '.data["ca.crt"]' | base64 -d > ~/.helm/ca.pem                                   $ kubectl get secrets -o json -n flux flux-helm-client-tls | jq -r '.data["tls.crt"]' | base64 -d > ~/.helm/cert.pem
 $ kubectl get secrets -o json -n flux  flux-helm-client-tls | jq -r '.data["tls.key"]' | base64 -d > ~/.helm/key.pem

@@ -1,0 +1,23 @@
+apiVersion: smana.dev/v1alpha1
+kind: Flux
+metadata:
+  name: flux-get-started
+spec:
+  git:
+    url: git@github.com:Smana/gitops-flux-demo.git
+    branch: master
+    path: "flux/demo-cluster"
+    secretName: "demo-flux-ssh"
+  helmOperator:
+    allowNamespace: "demo"
+    create: true
+    createCRD: false
+    tillerNamespace: flux
+    tls:
+      verify: true
+      enable: true
+      hostname: tiller-deploy.smana.dev
+  additionalArgs:
+  - --git-sync-tag=demo-cluster
+  memcached:
+    enabled: false
