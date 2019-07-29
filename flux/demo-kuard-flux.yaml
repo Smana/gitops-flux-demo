@@ -1,10 +1,10 @@
 apiVersion: smana.dev/v1alpha1
 kind: Flux
 metadata:
-  name: flux-get-started
+  name: demo-kuard
 spec:
   git:
-    url: git@github.com:Smana/gitops-flux-demo.git
+    url: git@github.com:Smana/gitops-flux-demo
     branch: master
     path: "flux/demo-cluster"
     secretName: "demo-flux-ssh"

@@ -13,8 +13,8 @@ metadata:
 spec:
   releaseName: kuard
   chart:
-    repository: https://github.com/Smana/gitops-flux-demo
-    name: kuard
+    git: git@github.com:Smana/gitops-flux-demo
+    ref: master
     path: flux/charts/kuard
     version: 0.0.1
   values:
