@@ -7,7 +7,7 @@ metadata:
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.chart-image: semver:~v0.9.*
-    flux.weave.works/locked: 'true'
+    flux.weave.works/locked: "true"
     flux.weave.works/locked_msg: '"Halt updates for now"'
     flux.weave.works/locked_user: Smana <smainklh@gmail.com>
 spec:
@@ -18,6 +18,7 @@ spec:
     path: flux/charts/kuard
     version: 0.0.1
   values:
+    replicaCount: 2
     image:
       repository: gcr.io/kuar-demo/kuard-amd64
       tag: v0.9-green

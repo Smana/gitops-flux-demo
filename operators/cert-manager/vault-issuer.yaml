@@ -1,7 +1,7 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Issuer
 metadata:
-  name: vault-issuer
+  name: vault
 spec:
   vault:
     path: pki/sign/cert-manager

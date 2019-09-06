@@ -1,0 +1,18 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: nginx
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  secretName: smana-tls
+  duration: 12h
+  renewBefore: 4h
+  issuerRef:
+    name: vault-issuer
+  commonName: nginx.smana.dev
+  dnsNames:
+  - nginx.smana.dev
+  - www.nginx.smana.dev
