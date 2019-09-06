@@ -20,6 +20,6 @@ spec:
   values:
     image:
       repository: gcr.io/kuar-demo/kuard-amd64
-      tag: v0.9-blue
+      tag: v0.9-green
     service:
       type: LoadBalancer
